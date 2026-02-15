@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:reg_form/new_screen.dart';
 
 class RegApp extends StatefulWidget {
   const RegApp({super.key});
@@ -254,15 +255,25 @@ class _RegAppState extends State<RegApp> {
                         backgroundColor: Colors.green,
                         foregroundColor: Colors.black,
                       ),
-                      onPressed: submitForm,
+                      onPressed: () {
+                        Navigator.pushReplacement(
+                          context,
+                          MaterialPageRoute(
+                            builder: (BuildContext context) {
+                              return FirstPage();
+                            },
+                          ),
+                        );
 
+                        submitForm();
+                      },
                       child: const Text(
                         "Submit",
-
                         style: TextStyle(color: Colors.black),
                       ),
                     ),
                   ),
+
                   const SizedBox(width: 10),
                   Expanded(
                     child: ElevatedButton(
